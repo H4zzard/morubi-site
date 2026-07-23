@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark by default — premium graphite palette */
+  --bg: 240 6% 5%;
+  --surface: 240 5% 8%;
+  --elevated: 240 5% 11%;
+  --border: 240 5% 16%;
+  --muted: 240 4% 46%;
+  --subtle: 240 5% 65%;
+  --foreground: 0 0% 98%;
+  --accent: 158 64% 45%;
+  --accent-foreground: 160 60% 8%;
+  --positive: 152 60% 48%;
+  --warning: 38 92% 58%;
+  --danger: 0 72% 60%;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", monospace;
+}
+
+.light {
+  --bg: 0 0% 100%;
+  --surface: 240 20% 99%;
+  --elevated: 0 0% 100%;
+  --border: 240 6% 90%;
+  --muted: 240 4% 46%;
+  --subtle: 240 5% 34%;
+  --foreground: 240 10% 4%;
+  --accent: 158 64% 38%;
+  --accent-foreground: 0 0% 100%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: hsl(var(--bg));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+  overflow-x: hidden;
+}
+
+::selection {
+  background: hsl(var(--accent) / 0.28);
+}
+
+/* Subtle grid + radial glow used across sections */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, hsl(var(--border) / 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(180deg, hsl(var(--foreground)) 30%, hsl(var(--muted)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: hsl(var(--surface) / 0.7);
+  backdrop-filter: blur(12px);
+}
+
+/* Thin custom scrollbar for inner panels */
+.scroll-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 999px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}

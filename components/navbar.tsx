@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,10 +10,11 @@ import { cn } from "@/lib/utils";
 import { openCalendly } from "@/lib/calendly";
 
 const links = [
-  { label: "Como funciona", href: "#como-funciona" },
-  { label: "Plataforma", href: "#plataforma" },
-  { label: "Resultados", href: "#resultados" },
-  { label: "Dúvidas", href: "#faq" },
+  { label: "Como funciona", href: "/#como-funciona" },
+  { label: "Plataforma", href: "/#plataforma" },
+  { label: "Resultados", href: "/#resultados" },
+  { label: "Dúvidas", href: "/#faq" },
+  { label: "Ajuda", href: "/ajuda" },
 ];
 
 export function Navbar() {
@@ -35,19 +37,19 @@ export function Navbar() {
             "glass mt-2 h-14 max-w-6xl rounded-full border border-border px-4 lg:px-6",
         )}
       >
-        <a href="#" aria-label="Morubi — início" className="flex items-center">
+        <Link href="/" aria-label="Morubi — início" className="flex items-center">
           <Logo />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className="rounded-full px-3.5 py-2 text-sm text-subtle transition-colors hover:text-foreground"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -79,14 +81,14 @@ export function Navbar() {
           >
             <div className="flex flex-col">
               {links.map((l) => (
-                <a
+                <Link
                   key={l.href}
                   href={l.href}
                   onClick={() => setOpen(false)}
                   className="rounded-lg px-3 py-3 text-[15px] text-subtle hover:bg-elevated hover:text-foreground"
                 >
                   {l.label}
-                </a>
+                </Link>
               ))}
               <Button
                 className="mt-3 w-full"

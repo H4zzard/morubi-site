@@ -1,20 +1,35 @@
 "use client";
 
+import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { openCalendly } from "@/lib/calendly";
 
-const columns = [
+const columns: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Produto",
-    links: ["Como funciona", "Plataforma", "Resultados", "Segurança"],
+    links: [
+      { label: "Como funciona", href: "/#como-funciona" },
+      { label: "Plataforma", href: "/#plataforma" },
+      { label: "Resultados", href: "/#resultados" },
+      { label: "Segurança", href: "/privacidade#secao-8" },
+    ],
   },
   {
     title: "Empresa",
-    links: ["Sobre", "Clientes", "Carreiras", "Contato"],
+    links: [
+      { label: "Sobre", href: "/#como-funciona" },
+      { label: "Clientes", href: "/#resultados" },
+      { label: "Contato", href: "mailto:contato@morubi.ai" },
+    ],
   },
   {
     title: "Recursos",
-    links: ["Central de ajuda", "Implantação", "Status", "Privacidade"],
+    links: [
+      { label: "Central de ajuda", href: "/ajuda" },
+      { label: "Implantação", href: "/implantacao" },
+      { label: "Status", href: "/status" },
+      { label: "Privacidade", href: "/privacidade" },
+    ],
   },
 ];
 
@@ -24,7 +39,9 @@ export function Footer() {
       <div className="mx-auto max-w-8xl px-6 py-16 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
-            <Logo />
+            <Link href="/" aria-label="Morubi — início">
+              <Logo />
+            </Link>
             <p className="mt-4 max-w-xs text-[14px] leading-relaxed text-muted">
               O gerente comercial de IA que acompanha cada conversa e mostra onde
               a sua operação ganha ou perde vendas.
@@ -44,13 +61,13 @@ export function Footer() {
               </h4>
               <ul className="mt-4 space-y-2.5">
                 {col.links.map((l) => (
-                  <li key={l}>
-                    <a
-                      href="#"
+                  <li key={l.label}>
+                    <Link
+                      href={l.href}
                       className="text-[14px] text-subtle transition-colors hover:text-foreground"
                     >
-                      {l}
-                    </a>
+                      {l.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -63,12 +80,18 @@ export function Footer() {
             © {new Date().getFullYear()} Morubi. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-6 text-[13px] text-muted">
-            <a href="#" className="transition-colors hover:text-foreground">
+            <Link
+              href="/termos"
+              className="transition-colors hover:text-foreground"
+            >
               Termos
-            </a>
-            <a href="#" className="transition-colors hover:text-foreground">
+            </Link>
+            <Link
+              href="/privacidade"
+              className="transition-colors hover:text-foreground"
+            >
               Privacidade
-            </a>
+            </Link>
             <button
               onClick={openCalendly}
               className="text-accent transition-colors hover:brightness-110"

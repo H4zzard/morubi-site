@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Logo } from "@/components/logo";
+import { CookiePreferencesButton } from "@/components/pages/cookie-preferences-button";
 import { openCalendly } from "@/lib/calendly";
 
 const columns: { title: string; links: { label: string; href: string }[] }[] = [
@@ -17,9 +18,9 @@ const columns: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Empresa",
     links: [
-      { label: "Sobre", href: "/#como-funciona" },
-      { label: "Clientes", href: "/#resultados" },
-      { label: "Contato", href: "mailto:contato@morubi.ai" },
+      { label: "Sobre", href: "/sobre" },
+      { label: "Clientes", href: "/clientes" },
+      { label: "Contato", href: "/contato" },
     ],
   },
   {
@@ -29,6 +30,7 @@ const columns: { title: string; links: { label: string; href: string }[] }[] = [
       { label: "Implantação", href: "/implantacao" },
       { label: "Status", href: "/status" },
       { label: "Privacidade", href: "/privacidade" },
+      { label: "Cookies", href: "/cookies" },
     ],
   },
 ];
@@ -92,6 +94,7 @@ export function Footer() {
             >
               Privacidade
             </Link>
+            <CookiePreferencesButton className="hover:text-foreground" />
             <button
               onClick={openCalendly}
               className="text-accent transition-colors hover:brightness-110"

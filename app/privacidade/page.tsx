@@ -242,16 +242,20 @@ export default function PrivacidadePage() {
         <LegalSection index={11} title="Cookies">
           <p>
             Usamos cookies e tecnologias equivalentes para manter o site
-            funcionando, lembrar preferências e entender de forma agregada como
-            as páginas são usadas. Cookies estritamente necessários não podem
-            ser desativados sem prejudicar o funcionamento do site; os demais
-            dependem da sua escolha e podem ser bloqueados nas configurações do
-            navegador.
+            funcionando, lembrar a sua escolha de privacidade e — apenas se você
+            permitir — habilitar recursos de terceiros e medição agregada de
+            uso.
           </p>
           <p>
-            O agendamento de demonstração é feito por uma ferramenta de terceiro
-            incorporada ao site, que pode definir cookies próprios ao ser
-            aberta.
+            Nada além do estritamente necessário é carregado antes do seu
+            consentimento, a recusa custa o mesmo número de cliques que a
+            aceitação, e você pode revogar quando quiser pelo link{" "}
+            <strong>Preferências de cookies</strong>, no rodapé de qualquer
+            página.
+          </p>
+          <p>
+            A lista completa de cookies, com finalidade e duração de cada um,
+            está na <Link href="/cookies">Política de Cookies</Link>.
           </p>
         </LegalSection>
 

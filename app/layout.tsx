@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import "./globals.css";
+import { CookieConsent } from "@/components/consent/cookie-consent";
+import { ThirdPartyScripts } from "@/components/consent/third-party-scripts";
 
 const siteUrl = "https://morubi.ai";
 
@@ -50,18 +51,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className="dark">
-      <head>
-        <link
-          href="https://assets.calendly.com/assets/external/widget.css"
-          rel="stylesheet"
-        />
-      </head>
       <body>
         {children}
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="afterInteractive"
-        />
+        {/* Terceiros só entram na página depois do consentimento. */}
+        <ThirdPartyScripts />
+        <CookieConsent />
       </body>
     </html>
   );

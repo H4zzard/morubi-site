@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -45,10 +46,13 @@ export function Cta() {
             <CalendarCheck size={17} />
             Agendar demonstração
           </Button>
-          <Button variant="secondary" size="lg">
+          <Link
+            href="/contato"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-elevated px-6 text-[15px] font-medium tracking-tight text-foreground transition-all duration-200 hover:bg-border/60 active:scale-[0.98]"
+          >
             Falar com o time
             <ArrowRight size={16} />
-          </Button>
+          </Link>
         </motion.div>
 
         <motion.div

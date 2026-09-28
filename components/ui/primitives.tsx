@@ -22,7 +22,7 @@ export function Section({
 
 export function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.16em] text-accent">
+    <span className="inline-flex items-center justify-center gap-2 text-[10px] font-medium uppercase tracking-[0.12em] text-accent sm:text-[13px] sm:tracking-[0.16em]">
       <span className="h-px w-6 bg-accent/50" />
       {children}
     </span>

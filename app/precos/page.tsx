@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+import { BarChart3, BookOpenCheck, Radio, Users } from "lucide-react";
+import { InfoPage } from "@/components/info-page";
+export const metadata:Metadata={title:"Preços",description:"Morubi Teams a partir de R$ 997 por mês.",alternates:{canonical:"/precos"}};
+export default function Page(){return <InfoPage eyebrow="Morubi Teams · a partir de R$ 997/mês" title="Um plano dimensionado para a sua operação comercial." description="O valor final considera tamanho da equipe, uso e módulos disponíveis. A demonstração valida o escopo antes da proposta." items={[{icon:Radio,title:"Assistência comercial",text:"Experiência contextual durante momentos críticos, conforme disponibilidade."},{icon:BookOpenCheck,title:"Playbook personalizado",text:"Configuração do produto, ICP, processo, objeções e concorrentes."},{icon:BarChart3,title:"Inteligência da operação",text:"Análise pós-call, scores e visibilidade gerencial conforme escopo contratado."},{icon:Users,title:"Desenvolvimento",text:"Coaching e recomendações individuais conforme estágio dos módulos."}]}/>}

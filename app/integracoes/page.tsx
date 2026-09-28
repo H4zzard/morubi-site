@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+import { Blocks, MessageCircle, MonitorUp, Workflow } from "lucide-react";
+import { InfoPage } from "@/components/info-page";
+export const metadata:Metadata={title:"Integrações",description:"Veja integrações disponíveis e planejadas da Morubi.",alternates:{canonical:"/integracoes"}};
+export default function Page(){return <InfoPage eyebrow="Integrações" title="A inteligência acompanha sua operação." description="Disponibilidade e roadmap aparecem separados para que sua equipe saiba exatamente o que pode usar hoje." items={[{icon:MessageCircle,title:"WhatsApp",text:"Canal disponível para o contexto comercial atual.",tag:"Disponível"},{icon:MonitorUp,title:"Plataformas de reunião",text:"Google Meet, Microsoft Teams e Zoom fazem parte da direção planejada do produto.",tag:"Planejado"},{icon:Workflow,title:"CRM",text:"HubSpot, Salesforce, Pipedrive e Kommo são conexões planejadas; confirme prioridades na demonstração.",tag:"Planejado"},{icon:Blocks,title:"Outros ambientes",text:"A arquitetura é preparada para expansão conforme a necessidade da operação.",tag:"Sob consulta"}]}/>}

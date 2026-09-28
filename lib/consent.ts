@@ -139,8 +139,10 @@ export function useConsent() {
   const [ready, setReady] = React.useState(false);
 
   React.useEffect(() => {
-    setRecord(readConsent());
-    setReady(true);
+    const hydrationTimer = window.setTimeout(() => {
+      setRecord(readConsent());
+      setReady(true);
+    }, 0);
 
     const onChange = (e: Event) => setRecord((e as CustomEvent<ConsentRecord>).detail);
     const onStorage = (e: StorageEvent) => {
@@ -150,6 +152,7 @@ export function useConsent() {
     window.addEventListener(CONSENT_CHANGED_EVENT, onChange);
     window.addEventListener("storage", onStorage);
     return () => {
+      window.clearTimeout(hydrationTimer);
       window.removeEventListener(CONSENT_CHANGED_EVENT, onChange);
       window.removeEventListener("storage", onStorage);
     };

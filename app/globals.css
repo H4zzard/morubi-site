@@ -11,7 +11,7 @@
   --muted: 240 4% 46%;
   --subtle: 240 5% 65%;
   --foreground: 0 0% 98%;
-  --accent: 158 64% 45%;
+  --accent: 158 72% 48%;
   --accent-foreground: 160 60% 8%;
   --positive: 152 60% 48%;
   --warning: 38 92% 58%;
@@ -41,6 +41,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -48,8 +50,13 @@ body {
   color: hsl(var(--foreground));
   font-family: var(--font-sans);
   font-feature-settings: "cv11", "ss01";
-  overflow-x: hidden;
+  max-width: 100%;
+  overflow-x: clip;
 }
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+:focus-visible { outline: 2px solid hsl(var(--accent) / .75); outline-offset: 3px; }
 
 ::selection {
   background: hsl(var(--accent) / 0.28);
@@ -69,6 +76,20 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(110deg, hsl(var(--foreground)) 5%, hsl(var(--accent)) 58%, hsl(158 72% 70%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.aurora {
+  background:
+    radial-gradient(circle at 25% 55%, hsl(var(--accent) / .18), transparent 42%),
+    radial-gradient(circle at 72% 45%, hsl(188 80% 45% / .1), transparent 38%);
+  filter: blur(30px);
 }
 
 .glass {

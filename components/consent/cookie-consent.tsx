@@ -26,13 +26,12 @@ export function CookieConsent() {
   const [draft, setDraft] = React.useState<ConsentChoices>(ALL_REJECTED);
 
   React.useEffect(() => {
-    setMounted(true);
-    const existing = readConsent();
-    if (existing) {
-      setDraft(existing.choices);
-    } else {
-      setShowBanner(true);
-    }
+    const hydrationTimer = window.setTimeout(() => {
+      setMounted(true);
+      const existing = readConsent();
+      if (existing) setDraft(existing.choices);
+      else setShowBanner(true);
+    }, 0);
 
     const onOpen = (e: Event) => {
       const detail = (e as CustomEvent<string | undefined>).detail;
@@ -41,7 +40,10 @@ export function CookieConsent() {
       setShowPanel(true);
     };
     window.addEventListener(CONSENT_OPEN_EVENT, onOpen);
-    return () => window.removeEventListener(CONSENT_OPEN_EVENT, onOpen);
+    return () => {
+      window.clearTimeout(hydrationTimer);
+      window.removeEventListener(CONSENT_OPEN_EVENT, onOpen);
+    };
   }, []);
 
   React.useEffect(() => {

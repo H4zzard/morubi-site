@@ -1,0 +1,2 @@
+import type { MetadataRoute } from "next";
+export default function sitemap():MetadataRoute.Sitemap{const base="https://morubi.ai";return ["","/produto","/live","/intelligence","/coach","/manager","/integracoes","/seguranca","/precos","/demo","/sobre","/contato","/ajuda","/privacidade","/termos","/cookies"].map(path=>({url:`${base}${path}`,lastModified:new Date(),changeFrequency:path===""?"weekly":"monthly",priority:path===""?1:.7}))}

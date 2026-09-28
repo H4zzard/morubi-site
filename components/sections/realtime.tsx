@@ -25,7 +25,7 @@ export function Realtime() {
               tone="neutral"
               actor="Cliente"
             >
-              <Bubble>"Tem desconto? Tô vendo outra proposta mais barata."</Bubble>
+              <Bubble>“Tem desconto? Tô vendo outra proposta mais barata.”</Bubble>
             </Step>
 
             <Step delay={0.15} icon={Sparkles} tone="accent" actor="Morubi">
@@ -60,8 +60,8 @@ export function Realtime() {
 
             <Step delay={0.3} icon={MessageCircle} tone="neutral" actor="Vendedor">
               <Bubble>
-                "Entendo. Antes do valor: você teria um gerente de conta só seu e
-                entrega em 7 dias. É isso que a outra proposta não cobre."
+                “Entendo. Antes do valor: você teria um gerente de conta só seu e
+                entrega em 7 dias. É isso que a outra proposta não cobre.”
               </Bubble>
             </Step>
 

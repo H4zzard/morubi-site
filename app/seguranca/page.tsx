@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+import { BookOpenCheck, KeyRound, LockKeyhole, ShieldCheck } from "lucide-react";
+import { InfoPage } from "@/components/info-page";
+export const metadata:Metadata={title:"Segurança",description:"Princípios de segurança, acesso e privacidade da Morubi.",alternates:{canonical:"/seguranca"}};
+export default function Page(){return <InfoPage eyebrow="Segurança e privacidade" title="Inteligência comercial exige confiança." description="Explicamos o que está documentado hoje sem atribuir certificações, controles ou garantias ainda não verificados." items={[{icon:LockKeyhole,title:"Proteção de dados",text:"A arquitetura é preparada para proteger informações comerciais e evoluir seus controles."},{icon:KeyRound,title:"Controle de acesso",text:"A empresa define usuários, permissões e o contexto necessário para a operação."},{icon:ShieldCheck,title:"Privacidade",text:"Conversas comerciais exigem tratamento responsável, transparência e finalidade clara."},{icon:BookOpenCheck,title:"LGPD",text:"Políticas explicam os papéis de controlador e operador, os direitos do titular e os canais de contato."}]}/>}

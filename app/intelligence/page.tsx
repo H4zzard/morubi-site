@@ -1,0 +1,6 @@
+import type { Metadata } from "next";
+import { Activity, ListTree, SearchCheck, Target } from "lucide-react";
+import { CallScorePanel } from "@/components/product-ui";
+import { SolutionPage } from "@/components/solution-page";
+export const metadata:Metadata={title:"Morubi Intelligence",description:"Transforme calls em evidências, scores e inteligência comercial.",alternates:{canonical:"/intelligence"}};
+export default function Page(){return <SolutionPage eyebrow="Morubi Intelligence" title="Cada conversa revela alguma coisa sobre como sua empresa vende." description="Call Score, timeline e padrões explicáveis ajudam o time a entender o resultado — e não apenas registrá-lo." note="Os dados exibidos são demonstrativos. O escopo disponível é validado na demonstração." capabilities={[{icon:Activity,title:"Call Score",text:"Dimensões da conversa reunidas em uma leitura rápida."},{icon:Target,title:"Deal Score",text:"Sinais positivos e riscos mostrados com evidências."},{icon:ListTree,title:"Timeline",text:"Momentos relevantes acessíveis sem rever a call inteira."},{icon:SearchCheck,title:"Padrões",text:"Comportamentos recorrentes aparecem para o gestor."}]} steps={["A call é analisada.","Momentos e comportamentos ficam organizados.","Scores apontam onde investigar.","Evidências alimentam o gestor e o playbook."]}><CallScorePanel/></SolutionPage>}
